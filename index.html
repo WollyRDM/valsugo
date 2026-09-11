@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#2E8B57" />
+  <title>ValsuGo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3yn3n3Zj83FhS5U7R4gmZt5Z2qcsA=" crossorigin="" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">ValsuGo</div>
+        <div class="subtitle">Insieme per strade migliori</div>
+      </div>
+      <button id="locateBtn" class="icon-btn" aria-label="La mia posizione">◎</button>
+    </header>
+
+    <section class="route-card">
+      <div class="route-label">Destinazione</div>
+      <div class="route-row">
+        <select id="destination">
+          <option value="trento">Trento</option>
+          <option value="pergine">Pergine Valsugana</option>
+          <option value="levico">Levico Terme</option>
+          <option value="borgo">Borgo Valsugana</option>
+        </select>
+        <button id="routeBtn" class="primary small">Confronta</button>
+      </div>
+      <div id="routeAdvice" class="advice">SS47: situazione non ancora calcolata</div>
+    </section>
+
+    <main id="map"></main>
+
+    <section id="reportSheet" class="sheet hidden" aria-hidden="true">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title">Cosa vuoi segnalare?</div>
+      <div class="report-grid">
+        <button data-type="incidente" class="report-type"><span>💥</span>Incidente</button>
+        <button data-type="coda" class="report-type"><span>🚙</span>Coda</button>
+        <button data-type="chiusa" class="report-type"><span>⛔</span>Strada chiusa</button>
+        <button data-type="lavori" class="report-type"><span>🚧</span>Lavori</button>
+        <button data-type="ostacolo" class="report-type"><span>⚠️</span>Ostacolo</button>
+      </div>
+      <textarea id="note" rows="2" maxlength="180" placeholder="Nota facoltativa"></textarea>
+      <div class="sheet-actions">
+        <button id="cancelReport" class="ghost">Annulla</button>
+        <button id="submitReport" class="primary" disabled>Invia segnalazione</button>
+      </div>
+    </section>
+
+    <button id="reportBtn" class="fab">＋ SEGNALA</button>
+
+    <nav class="bottom-nav">
+      <button class="active">🗺️<span>Mappa</span></button>
+      <button id="alertsBtn">⚠️<span>Segnalazioni</span></button>
+      <button id="aboutBtn">👤<span>Profilo</span></button>
+    </nav>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

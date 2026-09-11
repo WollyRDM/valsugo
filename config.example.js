@@ -1,0 +1,6 @@
+export const CONFIG = {
+  SUPABASE_URL: "",
+  SUPABASE_ANON_KEY: "",
+  DEFAULT_CENTER: [46.0119, 11.3026],
+  DEFAULT_ZOOM: 12
+};
